@@ -1,8 +1,7 @@
 @include('admin.layout.include.header')
 @include('admin.layout.include.sidebar')
-<section id="main-content">
-	<section class="wrapper">
+<div class="page-wrapper">
     @yield('content')
-</section>
+</div>
 @include('admin.layout.include.footer')
 

@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\CategoriesController;
+use App\Models\Categories;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.home');
 });
+
+Route::resource('categories', CategoriesController::class);
+ Route::resource('brands', BrandController::class);
+ Route::resource('products', ProductController::class);
+ Route::resource('users', UserController::class);
+ Route::resource('roles', RoleController::class);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Components\Recusive;
 use App\Models\Categories;
 use App\Http\Requests\StoreCategoriesRequest;
 use App\Http\Requests\UpdateCategoriesRequest;
@@ -15,7 +16,12 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categories::all();
+        $paginate = Categories::latest()->paginate(5);
+
+       // dd($categories);
+     
+        return view('admin.categories.index',compact('categories','paginate'));
     }
 
     /**
@@ -25,7 +31,10 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Categories::orderBy('name', 'ASC')->get();
+        $recusives = new Recusive($categories);
+        $data = $recusives->showCategories($parent_id = '');
+        return view('admin.categories.create',compact('data'));
     }
 
     /**

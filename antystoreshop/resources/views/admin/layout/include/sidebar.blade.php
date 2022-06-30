@@ -1,37 +1,65 @@
-<aside>
-    <div id="sidebar" class="nav-collapse">
-        <!-- sidebar menu start-->
-        <div class="leftside-navigation">
-            <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                    <a class="active" href="index.html">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Dashboard</span>
+<aside class="left-sidebar" data-sidebarbg="skin6">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <!-- User Profile-->
+                <li class="sidebar-item pt-2">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href=""
+                       aria-expanded="false">
+                        <i class="far fa-clock" aria-hidden="true"></i>
+                        <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-th"></i>
-                        <span>Data Tables</span>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href=""
+                       aria-expanded="false">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="hide-menu">Profile</span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="basic_table.html">Basic Table</a></li>
-                        <li><a href="responsive_table.html">Responsive Table</a></li>
-                    </ul>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-tasks"></i>
-                        <span>Form Components</span>
+ 
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('categories.index')}}"
+                       aria-expanded="false">
+                        <i class="fa fa-table" aria-hidden="true"></i>
+                        <span class="hide-menu">Loại sản phẩm</span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="form_component.html">Form Elements</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-						<li><a href="dropzone.html">Dropzone</a></li>
-                    </ul>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('brands.index')}}"
+                       aria-expanded="false">
+                        <i class="fab fa-bandcamp" aria-hidden="true"></i>
+                        <span class="hide-menu">Thương hiệu sản phẩm</span>
+                    </a>
                 </li>
-             
-            </ul>            </div>
-        <!-- sidebar menu end-->
+    
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('products.index')}}"
+                       aria-expanded="false">
+                        <i class="fa fa-table" aria-hidden="true"></i>
+                        <span class="hide-menu">Sản phẩm</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('users.index')}}"
+                       aria-expanded="false">
+                        <i class="fa fa-table" aria-hidden="true"></i>
+                        <span class="hide-menu">Danh sách nhân viên </span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('roles.index')}}"
+                       aria-expanded="false">
+                        <i class="fa fa-table" aria-hidden="true"></i>
+                        <span class="hide-menu">Quyền </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
     </div>
+    <!-- End Sidebar scroll-->
 </aside>

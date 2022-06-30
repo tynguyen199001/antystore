@@ -19,6 +19,8 @@ class CategoriesController extends Controller
         $categories = Categories::all();
         $paginate = Categories::latest()->paginate(5);
 
+
+        
        // dd($categories);
      
         return view('admin.categories.index',compact('categories','paginate'));

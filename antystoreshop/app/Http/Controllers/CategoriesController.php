@@ -59,6 +59,7 @@ class CategoriesController extends Controller
     public function show(Categories $categories)
     {
         //
+        return;
     }
 
     /**

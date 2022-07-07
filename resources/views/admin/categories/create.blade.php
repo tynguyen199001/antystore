@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-body">
                         <form method="post" action="{{route('categories.store')}}">
-                            @csrf
+                            @csrf                        
                             <div class="form-group mb-4">
                                 <label for="example" class="col-md-12 p-0">Tên danh mục</label>
                                 <div class="col-md-12 border p-0">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -32,7 +32,7 @@ class LoginController extends Controller
         $checkMail = User::where('email', $email)->take(1)->first();
         if ($checkMail && Hash::check($request->password, $checkMail->password)) {
             Auth::login($checkMail);
-            return redirect()->route('admin.index');
+            return redirect()->route('products.index');
         } else {
             Session::flash('error_phone', 'Đăng nhập không thành công');
             return redirect()->back();

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>How To Create Simple Login Form Design In Bootstrap 5</title>
+    <title>ANTY-STORE LOGIN</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
@@ -15,8 +15,6 @@
                 <form action="{{route('login.loginAdmin')}}" method="post" class="row g-3">
                     @csrf
                     <h4>Welcome Back</h4>
-
-
                     <div class="col-12">
                         @if (Session::has('success'))
                             <div class="alert alert-danger">{{session::get('success')}}</div>
@@ -50,7 +48,6 @@
         </div>
     </div>
 </div>
-
 <!-- Bootstrap JS -->
 <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
 </body>

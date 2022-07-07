@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use App\Components\Recusive;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
-use App\Http\Requests\StoreCategoriesRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use App\Http\Requests\UpdateCategoriesRequest;
+use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
@@ -19,7 +18,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $this->authorize('view_category');
+        // $this->authorize('view_category');
         $categories = Categories::all();
         $paginate = Categories::latest()->paginate(5);  
        // dd($categories);    
@@ -44,7 +43,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        
+      //  echo 123;die;   
         $categories = Categories::orderBy('name', 'ASC')->get();
         $recusives = new Recusive($categories);
         $data = $recusives->showCategories($parent_id = '');
@@ -57,8 +56,9 @@ class CategoriesController extends Controller
      * @param  \App\Http\Requests\StoreCategoriesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoriesRequest $request)
+    public function store(Request $request)
     {
+
         $input = [
             'name' => $request->name,
             'parent_id' => $request->parent_id,
@@ -104,14 +104,13 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoriesRequest $request, Categories $categories)
+    public function update(Request $request, $id)
     {
-        Categories::findOrFail($categories)->update([
+        Categories::findOrFail($id)->update([
             'name' => $request->name,
             'parent_id' => $request->parent_id,
             'slug' => Str::slug($request->name)
         ]);
-
         Session::flash('success', 'Cập nhật khách hàng thành công');
         return redirect()->route('categories.index');
     }
@@ -124,7 +123,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $this->authorize('delete_category');
+        // $this->authorize('delete_category');
         Categories::findOrFail($id)->delete();
         return redirect()->route('categories.index');
     }

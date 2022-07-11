@@ -13,7 +13,7 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'bail|required|unique:products',
+            'price' => 'required',
+          
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Tên không được phép để trống',
+            'name.unique' => 'Tên không được phép trùng',
+            'price.required' => 'Giá không được phép để trống',
+    
         ];
     }
 }

@@ -12,12 +12,14 @@ class Categories extends Model
 
     protected $table = 'categories';
     protected $fillable = [
+        'id',
         'name',
         'parent_id',
         'slug',
         'status'
     ];
-        public function sub_categories(){
-        return $this->hasMany(self::class,'parent_id','id');
+    public function sub_categories()
+    {
+        return $this->hasMany(self::class, 'parent_id', 'id');
     }
 }
